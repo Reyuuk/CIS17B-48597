@@ -8,9 +8,10 @@ using namespace std;
 class BaseArray: public AbstractArray
 {
 public:
-    virtual char* toString();
+    char* toString();
     BaseArray(int, int);
     ~BaseArray();
+    virtual void fillArray(int, int);
 };
 
 BaseArray::BaseArray(int row, int col){
@@ -37,7 +38,7 @@ char* BaseArray::toString(){
     for(int row=0; row<nRows; row++){
         for(int col=0; col<nCols;col++){
             char buffer[3];
-            sprintf(buffer, "%d",array[row][col]);
+            sprintf_s(buffer, "%d",array[row][col]);
             strcat(chArry, buffer);
             strcat(chArry, " ");
         }
@@ -46,5 +47,33 @@ char* BaseArray::toString(){
 
     return chArry;
 }
+
+
+void BaseArray::fillArray(int rows, int cols){
+    //validate rows and cols input
+    if(rows > 0){
+        nRows = rows;
+    }
+    else nRows = 1;
+    if(cols > 0){
+        nCols = cols;
+    }
+    else nCols = 1;
+
+    srand(static_cast<unsigned int>(time(0)));
+
+    array = new int*[nRows];
+    for(int row=0; row < nRows; row++){
+        array[row] = new int[nCols];
+    }
+
+    for(int row=0; row < nRows; row++){
+        for(int col=0;col < nCols; col++){
+            array[row][col] = rand()%90+10;
+        }
+    }
+}
+
+
 
 #endif // BASEARRAY_H

@@ -11,10 +11,19 @@ class DerivedArray: public BaseArray
 {
 public:
     DerivedArray(int row, int col) : BaseArray(row, col){}
-    void toPrint();
+    int toPrint();
 };
 
-void DerivedArray::toPrint(){
+int DerivedArray::toPrint(){
+    char* string = this->toString();
+    int argc=1;
+    char *argv[1]={"1"};
+
+    QApplication app(argc, argv);
+    QLabel *label = new QLabel(string);
+    label->setWordWrap(true);
+    label->show();
+    return app.exec();
 
 }
 

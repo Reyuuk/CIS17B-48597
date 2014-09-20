@@ -10,13 +10,9 @@ int main(int argc, char *argv[])
 {
     int row = 10;
     int col = 5;
-    Array arry(row, col);
 
-    char* string = arry.toString();
+    DerivedArray arry(row,col);
+    arry.toPrint();
 
-    QApplication app(argc, argv);
-    QLabel *label = new QLabel(string);
-    label->setWordWrap(true);
-    label->show();
-    return app.exec();
+    return 0;
 }
