@@ -4,7 +4,7 @@ Client::Client(QObject *parent) : QObject(parent){
     connect(&client, SIGNAL(connected()), this, SLOT(startTransfer()));
     //GET signal connected, SLOT it into a notification to mainwindow showing connected status
     //Get signal data SLOT it into the transfer
-    connect(&client, SIGNAL(disconnected()),
+    //connect(&client, SIGNAL(disconnected()),
 }
 
 Client::~Client(){

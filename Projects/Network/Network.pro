@@ -14,12 +14,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     client.cpp \
-    server.cpp
+    server.cpp \
+    networkdialog.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     client.h \
-    server.h
+    server.h \
+    networkdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    networkdialog.ui
